@@ -1,11 +1,13 @@
 import React from 'react';
 import {ILaunch} from "../IInterfaces/LaunchInterf";
 import {FC} from "react";
-interface IProps{
-    launch:ILaunch
+
+interface IProps {
+    launch: ILaunch
 }
-const Launch:FC<IProps> = ({launch}) => {
-    const {mission_name, launch_year, links:{mission_patch_small}} = launch
+
+export const Launch: FC<IProps> = ({launch}) => {
+    const {mission_name, launch_year, links: {mission_patch_small}} = launch
     return (
         <div>
             <div>Mission:{mission_name}</div>
@@ -15,6 +17,4 @@ const Launch:FC<IProps> = ({launch}) => {
         </div>
     );
 };
-
-export {Launch};
 

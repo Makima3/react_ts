@@ -3,12 +3,12 @@ import {ILaunch} from "../IInterfaces/LaunchInterf";
 import {spaceService} from "../Services/spaceService";
 import {Launch} from "./Launch";
 
-const Launches = () => {
+export const Launches = () => {
 
     const [launches, setLaunches] = useState<ILaunch[]>([])
 
-    useEffect(()=> {
-        spaceService.getAll().then(({data})=>{
+    useEffect(() => {
+        spaceService.getAll().then(({data}) => {
             const filtered = data.filter(item => item.launch_year !== "2020")
             setLaunches(filtered)
         })
@@ -16,10 +16,9 @@ const Launches = () => {
     }, [])
     return (
         <div>
-            {launches.map(launch => <Launch launch={launch} key={launch.mission_name}/>)}
+            {
+                launches.map(launch => <Launch launch={launch} key={launch.mission_name}/>)
+            }
         </div>
     );
 };
-
-export {Launches};
-
